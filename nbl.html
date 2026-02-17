@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard & Data Usage Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-color: #f0f4ff;
+    --card-bg: #ffffff;
+    --text-color: #222222;
+    --header-bg: linear-gradient(90deg, #ff6ec7, #ffab6e);
+    --nav-bg: #d0d8ff;
+    --nav-active: #ff6ec7;
+    --highlight-bg: #ffd166;
+    --feature-bg: #e0e0ff;
+    --note-color: #555555;
+    --button-bg: #6effa1;
+    --button-text: #222222;
+}
+[data-theme="dark"] {
+    --bg-color: #0f0c29;
+    --card-bg: #1f1b3a;
+    --text-color: #f0f0f0;
+    --header-bg: linear-gradient(90deg, #ff6ec7, #ffab6e);
+    --nav-bg: #29204c;
+    --nav-active: #ff6ec7;
+    --highlight-bg: #ffab6e;
+    --feature-bg: #3e2f5b;
+    --note-color: #f2f2f2;
+    --button-bg: #6effa1;
+    --button-text: #0f0c29;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s;
+}
+header {
+    background: var(--header-bg);
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+    font-size: 1.8em;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+nav {
+    display: flex;
+    flex: 1;
+}
+nav button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 15px;
+    cursor: pointer;
+    background: var(--nav-bg);
+    border: 2px solid #ff6ec7;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: var(--text-color);
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+nav button.active {
+    background: var(--nav-active);
+    color: #fff;
+    border-color: #ffab6e;
+}
+#themeToggle {
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 2px solid #ff6ec7;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+section {
+    display: none;
+    padding: 25px;
+    background: var(--card-bg);
+    max-width: 900px;
+    margin: 20px auto;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border: 2px solid #ff6ec7;
+    transition: all 0.3s;
+}
+section.active { display: block; }
+h2 { color: var(--text-color); margin-top: 0; text-shadow: 1px 1px 2px #ff6ec7; }
+ul { padding-left: 20px; }
+.note { font-size: 0.8em; color: var(--note-color); text-shadow: 1px 1px 1px #000; }
+.highlight {
+    background: var(--highlight-bg);
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.feature-box {
+    background: var(--feature-bg);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    border: 2px solid #ffab6e;
+    transition: all 0.3s;
+}
+.feature-box h3 { margin: 0 0 8px 0; font-size: 1em; text-shadow: 1px 1px 2px #ff6ec7; }
+.feature-box p { margin: 5px 0; }
+</style>
+</head>
+<body data-theme="light">
+
+<header>Leaderboard & Data Usage Guide</header>
+
+<div class="nav-container">
+    <nav>
+        <button id="tab1Btn" class="active">Leaderboard Info</button>
+        <button id="tab2Btn">Check Your Data</button>
+        <button id="tab3Btn">Meta Permissions</button>
+    </nav>
+    <button id="themeToggle">Night Mode</button>
+</div>
+
+<section id="tab1" class="active">
+    <h2>How the Leaderboard Works</h2>
+    <p>The leaderboard displays all players in the room with their profile pictures and names. Each player has a “Spot on the Leaderboard” showing their position, which updates automatically.</p>
+    <h2>Understanding Spots on the Leaderboard</h2>
+    <ul>
+        <li>Spot 1 → First player</li>
+        <li>Spot 2 → Second player</li>
+    </ul>
+    <p class="note">Spots update in real-time whenever players join or leave.</p>
+    <div class="highlight">
+        <h2>Example Leaderboard</h2>
+        <ul>
+            <li>Spot 1: PlayerOne</li>
+            <li>Spot 2: PlayerTwo</li>
+            <li>Spot 3: PlayerThree</li>
+        </ul>
+    </div>
+    <h2>Reporting Players</h2>
+    <ul>
+        <li>Click “Report” next to a player’s name.</li>
+        <li>Select a reason.</li>
+        <li>Report is submitted and the button hides for that player.</li>
+    </ul>
+</section>
+
+<section id="tab2">
+    <h2>Checking Your Data in the Game</h2>
+    <p>Understand what the leaderboard and reporting system use about you.</p>
+    <h2>Data Used for the Leaderboard</h2>
+    <ul>
+        <li><strong>Display Name:</strong> Shown to all players.</li>
+        <li><strong>Profile Picture:</strong> Avatar used in leaderboard and reports.</li>
+        <li><strong>User ID:</strong> Unique identifier (not visible to other players).</li>
+    </ul>
+    <h2>Data Sent When Reporting</h2>
+    <ul>
+        <li>Your name and profile picture</li>
+        <li>Reported player’s name and profile picture</li>
+        <li>Selected reason</li>
+        <li>Room name where report occurred</li>
+    </ul>
+    <h2>How to Check Your Own Data</h2>
+    <ul>
+        <li>Open leaderboard in-game to see your spot.</li>
+        <li>Click “Report” to view the data included (in webhook payload, not public).</li>
+        <li>Profile picture and name come from your Meta account.</li>
+    </ul>
+    <h2>Tips</h2>
+    <ul>
+        <li>Update your display name and profile picture in Meta to change in-game appearance.</li>
+        <li>Reports do not expose passwords or sensitive info.</li>
+        <li>Leaderboard spots reflect real-time positions.</li>
+    </ul>
+</section>
+
+<section id="tab3">
+    <h2>Meta Permissions Setup</h2>
+    <p>Required permissions for leaderboard and reporting:</p>
+    <div class="feature-box">
+        <h3>User ID – Active</h3>
+        <p>Access to user ID for multiplayer features.</p>
+        <p><strong>Why:</strong> Required for multiplayer, syncing player data, account management, and content ownership.</p>
+    </div>
+    <div class="feature-box">
+        <h3>User Profile – Active</h3>
+        <p>Access to username and profile photo.</p>
+        <p><strong>Why:</strong> Needed to display avatars, improve identity consistency, and help players recognize each other.</p>
+    </div>
+    <div class="feature-box">
+        <h3>User Age Group – Active</h3>
+        <p>Access to user age group (for mixed-age apps).</p>
+        <p><strong>Why:</strong> Ensures age-appropriate experience, compliance, limits social features if needed, and protects younger users.</p>
+    </div>
+</section>
+
+<script>
+const tabs=['tab1','tab2','tab3'];
+tabs.forEach((id,i)=>{
+    document.getElementById(`tab${i+1}Btn`).onclick=function(){
+        tabs.forEach(t=>document.getElementById(t).classList.remove('active'));
+        tabs.forEach((_,j)=>document.getElementById(`tab${j+1}Btn`).classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        this.classList.add('active');
+    }
+});
+const toggle=document.getElementById('themeToggle');
+toggle.onclick=()=>{
+    const body=document.body;
+    if(body.getAttribute('data-theme')==='light'){
+        body.setAttribute('data-theme','dark');
+        toggle.textContent='Light Mode';
+    } else {
+        body.setAttribute('data-theme','light');
+        toggle.textContent='Night Mode';
+    }
+};
+</script>
+</body>
+</html>
